@@ -87,6 +87,7 @@ setInterval(tick, 1000);
 ```
 ## 组件
 * 函数定义组件
+
 接收单一的 props 对象，返回一个 React 元素
 
 props 是组件的输入内容，从父组件传递给子组件的数据（属性）
@@ -97,6 +98,7 @@ function Hello(props){
 ReactDOM.render(<Hello name='React' />,getElementById('root'));
 ```
 * 类定义组件
+
 React 提供了 component 抽象基础类，通常继承 React.Component
 
 至少定义一个 render() 方法
@@ -109,6 +111,7 @@ class Hello extends React.Component {
 ReactDOM.render(<Hello name='React' />,getElementById('root'));
 ```
 * state (状态)
+
 私有的、完全受控于当前组件，组件外部是无法修改的
 
 类定义的组件特有的属性
@@ -129,6 +132,7 @@ class Hello extends React.Component{
 }
 ```
 * 生命周期函数
+
 初始化*constructor()*
 
 挂载*componentDidMount()*
