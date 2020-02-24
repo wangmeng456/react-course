@@ -174,3 +174,75 @@ ReactDOM.render(
 );
 ```
 ## 事件绑定
+
+注意：事件名称是驼峰形式
+* 事件处理函数绑定 this--箭头函数
+```
+class App extends React.Compontrnt{
+  contructor(){
+    super();
+    this.state={
+      content:'hello'
+    }
+  }
+  handleClick=()=>{
+    this.setState({
+      content:'world'
+    });
+  }
+  render(){
+    return(
+      <div>
+        <p>{this.state.content}</p>
+        <button onClick={this.handleClick}>click</button>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+* 事件处理函数绑定 this--通过 bind 绑定 this
+```
+class App extends React.Compontrnt{
+  contructor(){
+    super();
+    this.state={
+      content:'hello'
+    }
+    this.handleClick=this.handleClick.bind(this);
+  }
+  handleClick(){
+    this.setState({
+      content:'world'
+    });
+  }
+  render(){
+    return(
+      <div>
+        <p>{this.state.content}</p>
+        <button onClick={this.handleClick.bind(this)}>click</button>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+## 事件处理函数传参
+* 函数声明时事件对象作为最后一个参数传入
+```
+deleteRow = ( id, e ) => { }
+```
+* 箭头函数的事件对象显示传入
+```
+// 箭头函数没有this指向，默认是继承外部上下的this，所以箭头函数中的this指向的就是组件
+<button onClick={(e) => this.deleteRow(id, e)}>
+  Delete Row
+</button>
+```
+* bind 会隐式传入
+```
+// bind() 方法可以把组件的this代替函数的this
+<button onClick={this.deleteRow.bind(this, id)}>
+  Delete Row
+</button>
+```
