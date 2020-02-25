@@ -246,3 +246,5 @@ deleteRow = ( id, e ) => { }
   Delete Row
 </button>
 ```
+## PropTypes
+* PropTypes 类型检查
