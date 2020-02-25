@@ -248,3 +248,59 @@ deleteRow = ( id, e ) => { }
 ```
 ## PropTypes
 * PropTypes 类型检查
+```
+import PropTypes from 'prop-types';
+……
+class Hello extends React.Component { 
+  render() { 
+    return <h1>Hello, {this.props.name}</h1>; 
+  } 
+}
+Hello.propTypes = {
+  name : PropTypes.string
+}
+```
+* defaultProps 设置默认值
+```
+import PropTypes from 'prop-types';
+……
+class Hello extends React.Component { 
+  render() { 
+    return <h1>Hello, {this.props.name}</h1>; 
+  } 
+}
+Hello.defaultProps = {
+  name : 'Tom'
+}
+```
+* 受控组件
+
+输入的值由 React 控制的表单元素称为“受控组件”
+
+在 HTML 当中，像 <input>,<textarea>,<select> 这类表单元素会维持自身状态，并根据用户输入进行更新
+  
+在 React 中，可变的状态通常保存在组件的状态属性中，并且只能用 setState() 方法进行更新
+* 非受控组件
+
+非受控组件将真实数据保存在 DOM 中
+
+容易同时集成 React 和非 React 代码，减少代码量
+
+使用 defaultValue 为表单元素指定初始值
+
+使用 refs 获取表单的值
+* refs
+* TodoList
+## DOM Elements
+* className
+
+使用 classname 属性指定一个 css 类
+* onChange
+
+实时处理用户输入
+* htmlFor
+
+因为 for 是在 JavaScript 中的一个保留字， React 元素使用 htmlFor 代替
+* dangerouslySetInnerHTML
+* style
+
