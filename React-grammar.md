@@ -279,6 +279,7 @@ Hello.defaultProps = {
 在 HTML 当中，像 <input>,<textarea>,<select> 这类表单元素会维持自身状态，并根据用户输入进行更新
   
 在 React 中，可变的状态通常保存在组件的状态属性中，并且只能用 setState() 方法进行更新
+
 ```
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
