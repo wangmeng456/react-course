@@ -344,7 +344,8 @@ class TodoList extends Component{
 ```
 * TodoList
 
-[示例代码](https://wangmeng456.github.io/React/task-one/index.html)
+[示例代码](https://github.com/wangmeng456/React)
+[参考效果](https://wangmeng456.github.io/React/task-one/index.html)
 ## DOM Elements
 * className
 
