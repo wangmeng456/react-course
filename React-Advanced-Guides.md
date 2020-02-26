@@ -7,6 +7,7 @@ Context 通过组件树提供了一个传递数据的方法，从而避免了在
 *React.createContext*
 
 [举例](https://segmentfault.com/a/1190000019911590)
+
 *Provider*
 
 *Consumer*
