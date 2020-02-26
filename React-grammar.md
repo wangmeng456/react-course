@@ -273,6 +273,12 @@ Hello.defaultProps = {
 }
 ```
 * 受控组件
+
+输入的值由 React 控制的表单元素称为“受控组件”*
+
+
+  
+在 React 中，可变的状态通常保存在组件的状态属性中，并且只能用 setState() 方法进行更新
 ```
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
@@ -339,6 +345,7 @@ class TodoList extends Component{
 }
 ```
 * TodoList
+
 [示例代码](https://wangmeng456.github.io/React/task-one/index.html)
 ## DOM Elements
 * className
