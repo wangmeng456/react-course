@@ -280,6 +280,32 @@ Hello.defaultProps = {
 在 HTML 当中，像 <input>,<textarea>,<select> 这类表单元素会维持自身状态，并根据用户输入进行更新
   
 在 React 中，可变的状态通常保存在组件的状态属性中，并且只能用 setState() 方法进行更新
+```
+import React,{Component} from 'react';
+import ReactDOM from 'react-dom';
+class TodoList extends Component{
+    constructor(){
+        super();
+        this.state = {
+            inputValue:'hello'
+        }
+    }
+    // 不设置onChange事件，input无法修改里面的内容，重新设置state，render被调用，重新渲染
+    handleChange = (e)=>{
+        this.setState({
+            inputValue:e.target.value
+        })
+    }
+    render(){
+        return (
+            <div>
+                <input type="text" onChange={this.handleChange} value={this.state.inputValue}/>
+                <button>提交</button>
+            </div>
+        )
+    }
+}
+```
 * 非受控组件
 
 非受控组件将真实数据保存在 DOM 中
@@ -290,7 +316,37 @@ Hello.defaultProps = {
 
 使用 refs 获取表单的值
 * refs
+
+用于访问在 render 方法中创建的 DOM 节点或 React 元素
+```
+//创建 refs
+import React,{Component} from 'react';
+import ReactDOM from 'react-dom';
+class TodoList extends Component{
+    constructor(){
+        super();
+        this.state = {
+            inputValue:'hello'
+        }
+    }
+    handleClick = ()=>{
+        console.log(this.input.value)
+    }
+    componentDidMount(){
+        this.input.focus();
+    }
+    render(){
+        return (
+            <div>
+                <input type="text" defaultValue='hello' ref={input=>this.input = input}/>
+                <button onClick={this.handleClick}>提交</button>
+            </div>
+        )
+    }
+}
+```
 * TodoList
+[示例代码](https://wangmeng456.github.io/React/task-one/index.html)
 ## DOM Elements
 * className
 
@@ -302,5 +358,18 @@ Hello.defaultProps = {
 
 因为 for 是在 JavaScript 中的一个保留字， React 元素使用 htmlFor 代替
 * dangerouslySetInnerHTML
+
+React 提供的替换浏览器 DOM 中的 innerHTML 接口的一个函数
+```
+let str = '<h1>hello</h1>'
+let ele = <div dangerouslySetInnerHTML={{__html:str}}></div>
+ReactDOM.render(ele,document.getElementById('root'));
+```
 * style
 
+style 属性接受一个JavaScript 对象，其属性用小驼峰命名法命名，而不是接受 CSS 字符串
+```
+<div style={{width:100,height:'100px',background:'red'}}>
+  Hello World!
+</div>
+```
