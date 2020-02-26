@@ -263,7 +263,6 @@ Hello.propTypes = {
 * defaultProps 设置默认值
 ```
 import PropTypes from 'prop-types';
-……
 class Hello extends React.Component { 
   render() { 
     return <h1>Hello, {this.props.name}</h1>; 
